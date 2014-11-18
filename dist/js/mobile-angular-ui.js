@@ -1481,11 +1481,11 @@ if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) 
    'use strict';
    var module = angular.module('mobile-angular-ui.fastclick', []);
 
-     module.run(function($window, $document) {
+     module.run(['$window', '$document', function($window, $document) {
          $window.addEventListener("load", (function() {
             FastClick.attach($document[0].body);
          }), false);
-     });
+     }]);
 
      angular.forEach(['select', 'input', 'textarea'], function(directiveName){
        module.directive(directiveName, function(){
